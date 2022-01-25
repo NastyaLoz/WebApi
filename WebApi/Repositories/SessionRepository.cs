@@ -35,7 +35,7 @@ namespace WebApi.Repositories
             {
                 throw new SecurityException("There is no such component");
             }
-            return component.ToJsonDto();
+            return component.ToJsonDto().OrderByDescending(q=>q.datetime).ToArray();
         }
         
         ///////// Session /////////
@@ -57,21 +57,21 @@ namespace WebApi.Repositories
             {
                 throw new SecurityException("There is no such componentType");
             }
-            var t = System.Convert.ToDateTime(component.dt);
-            var f = component.much_charge / 60;
+            
             var session = new TSessions
             {
                 dt  = System.Convert.ToDateTime(component.dt),
                 start = TimeSpan.Parse(component.start),
                 stop = TimeSpan.Parse(component.stop),
                 // chargePoleId = component.ChargePoleId,
-                soc_final = Convert.ToInt16(f) + 20,
+                soc_final = !component.smart ? Convert.ToInt16(component.much_charge / 60) + 20 : 0,
                 soc_inittial = 20,
                 battery_size = 60,
-                smart = component.smart,
+                smart = !component.smart,
                 much_charge = component.much_charge,
-                power = component.power,
-                ChargePole = newComponentType
+                power = 11,
+                ChargePole = newComponentType,
+                control_applyed = false
             };
             await Context.TSessions.AddAsync(session, CancellationToken);
             await Context.SaveChangesAsync(CancellationToken);

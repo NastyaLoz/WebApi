@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.SymbolStore;
 using WebApi.Models;
 
 namespace WebApi.Domain
@@ -21,6 +22,7 @@ namespace WebApi.Domain
         public  bool smart { get; set; }
         public int much_charge { get; set; }
         public double power { get; set; }
+        public bool control_applyed { get; set; }
 
         public virtual TChargePole ChargePole { get; set; }
     }

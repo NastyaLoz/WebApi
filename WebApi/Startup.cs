@@ -36,7 +36,7 @@ namespace WebApi
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                     builder =>
                     {
-                        builder.WithOrigins(Configuration["Web:Url"], "https://localhost:4200","http://ev.oceli.energy")
+                        builder.WithOrigins(Configuration["Web:Url"], "https://localhost:4200","https://ev.oceli.energy")
                             .AllowAnyMethod()
                             .AllowAnyHeader()
                             .AllowCredentials();

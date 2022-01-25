@@ -21,7 +21,8 @@ namespace WebApi.Extensions
                 battery_size = session.battery_size,
                 smart = session.smart,
                 much_charge = session.much_charge,
-                power = session.power
+                power = session.power,
+                control_applyed = session.control_applyed
             };
         }
         
