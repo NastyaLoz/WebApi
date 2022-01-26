@@ -18,5 +18,6 @@ namespace WebApi.Dto
         public int much_charge { get; set; }
         public double power { get; set; }
         public bool control_applyed { get; set; }
+        public DateTime order_date { get; set; }
     }
 }

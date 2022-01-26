@@ -22,7 +22,8 @@ namespace WebApi.Extensions
                 smart = session.smart,
                 much_charge = session.much_charge,
                 power = session.power,
-                control_applyed = session.control_applyed
+                control_applyed = session.control_applyed,
+                order_date = session.order_date
             };
         }
         

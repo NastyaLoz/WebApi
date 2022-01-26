@@ -35,7 +35,8 @@ namespace WebApi.Repositories
             {
                 throw new SecurityException("There is no such component");
             }
-            return component.ToJsonDto().OrderByDescending(q=>q.datetime).ToArray();
+            // return component.ToJsonDto().OrderByDescending(q=>q.datetime).ToArray();
+            return component.ToJsonDto().OrderByDescending(q=>q.order_date).ToArray();
         }
         
         ///////// Session /////////
@@ -71,7 +72,8 @@ namespace WebApi.Repositories
                 much_charge = component.much_charge,
                 power = 11,
                 ChargePole = newComponentType,
-                control_applyed = false
+                control_applyed = false,
+                order_date = DateTime.Now
             };
             await Context.TSessions.AddAsync(session, CancellationToken);
             await Context.SaveChangesAsync(CancellationToken);
