@@ -15,7 +15,7 @@ namespace WebApi.Extensions
                 dt  = session.dt,
                 start = session.start,
                 stop = session.stop,
-                chargePoleId = session.ChargePoleId,
+                chargepoleId = session.chargepoleId,
                 soc_final = session.soc_final,
                 soc_inittial = session.soc_inittial,
                 battery_size = session.battery_size,
@@ -23,7 +23,8 @@ namespace WebApi.Extensions
                 much_charge = session.much_charge,
                 power = session.power,
                 control_applyed = session.control_applyed,
-                order_date = session.order_date
+                order_date = session.order_date,
+                Deleted = session.Deleted
             };
         }
         
