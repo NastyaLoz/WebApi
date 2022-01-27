@@ -122,7 +122,7 @@ namespace WebApi.Repositories
             session.soc_final = Convert.ToInt16(sessionDto.much_charge / 60) + 20;
             session.soc_inittial = 20;
             session.battery_size = 60;
-            session.smart = !sessionDto.smart;
+            session.smart = sessionDto.smart;
             session.much_charge = sessionDto.much_charge;
             session.power = sessionDto.power;
             session.ChargePole = newComponentType;
